@@ -17,7 +17,8 @@ const kilogramToPound = 2.204
 
 convertBtn.addEventListener("click", function() {
     let baseValue =  inputEl.value
-
+    if(baseValue < 1) return alert('Please pick a positive number')
+    
     lengthEl.textContent = `
     ${baseValue}  meter  =   ${(baseValue * meterToFeet).toFixed(3)} feet | ${baseValue} feet = ${(baseValue / meterToFeet).toFixed(3)} meter
     `
@@ -27,5 +28,5 @@ convertBtn.addEventListener("click", function() {
     massEl.textContent = `
     ${baseValue}  kilogram  =   ${(baseValue * kilogramToPound).toFixed(3)} pound | ${baseValue} pound  = ${(baseValue / kilogramToPound).toFixed(3)} kilogram
     `
-
+    inputEl.value = 0
 })
